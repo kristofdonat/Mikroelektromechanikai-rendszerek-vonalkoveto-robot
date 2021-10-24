@@ -8,5 +8,3 @@ api = tweepy.API(auth)
 randomszam = random.randrange(1,100)
 api.update_status(str(randomszam))
 print("sikeresen tweetelve az, hogy ", randomszam)
-
-print("hello world")
