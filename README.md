@@ -5,5 +5,5 @@ Készítette:
 
 -Kristóf Donát - HMDF7Q
 
--Rokosz Zsigmond János - NEPTUNK
+-Rokosz Zsigmond János - GYB73R
 
