@@ -11,23 +11,11 @@ def tweet(uzenet):
     api.update_status(str(uzenet))
     print("sikeresen tweetelve az, hogy ", uzenet)
 
-def configure_robot():
-    robot = Robot(left=(5, 6), right=(23, 24))
-    left_sensor = LineSensor(17)
-    right_sensor = LineSensor(27)
+robot = Robot(left=(5, 6), right=(23, 24))
+left_sensor = LineSensor(17)
+right_sensor = LineSensor(27)
 
-def start(seconds):
-    robot.source = motor_speed()
-    sleep(seconds)
-
-def stop():
-    robot.stop()
-    robot.source = None
-    robot.close()
-    left_sensor.close()
-    right_sensor.close()
-
-def motor_speed():
+def motor_speed(speed):
     while True:
         left_detect  = int(left_sensor.value)
         right_detect = int(right_sensor.value)
@@ -42,5 +30,23 @@ def motor_speed():
             right_mot = -1
         #print(r, l)
         yield (right_mot * speed, left_mot * speed)
+        
+def stop():
+    robot.stop()
+    robot.source = None
+    robot.close()
+    left_sensor.close()
+    right_sensor.close()
+
+def go(seconds):
+    robot.source = motor_speed(0.4)
+    sleep(seconds)
+    stop()
+        
+
+
+
+tweet("Elindultam végre!!")
+go(15)
 
 
